@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Zap, Target, Layers, ArrowUpRight, X, CheckCircle2, Play, DollarSign, Bot, Clock, CalendarCheck, UserMinus } from 'lucide-react';
+import { ArrowRight, Zap, Target, Layers, ArrowUpRight, X, CheckCircle2, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/Button';
 
@@ -70,117 +70,91 @@ export function Home() {
 
             {/* ─── WHAT SCALING ACTUALLY MEANS ─── */}
             <section className="py-20 md:py-28 px-6 relative z-10 bg-white border-y border-gray-100">
-                <div className="max-w-6xl mx-auto">
+                <div className="max-w-5xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-80px" }}
                         transition={{ duration: 0.7 }}
-                        className="text-center mb-16"
+                        className="text-center mb-14"
                     >
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-brand-100 mb-4">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-brand-100">
                             What <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-cyan">Scaling</span> Actually Means
                         </h2>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                        {/* Scaling is NOT */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -40 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, margin: "-80px" }}
-                            transition={{ duration: 0.7 }}
-                            className="bg-gray-50 rounded-2xl p-8 md:p-10 border border-gray-200 relative overflow-hidden"
-                        >
-                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-400 to-red-300"></div>
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
-                                    <X className="w-5 h-5 text-red-500" />
+                    {/* Editorial Strip */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-60px" }}
+                        transition={{ duration: 0.7, delay: 0.1 }}
+                        className="bg-gradient-to-r from-gray-50 via-white to-emerald-50/40 rounded-2xl border border-gray-200 p-8 md:p-12 shadow-sm"
+                    >
+                        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-0 items-start">
+
+                            {/* Left — The Old Way */}
+                            <div className="md:pr-10">
+                                <div className="flex items-center gap-2 mb-8">
+                                    <div className="h-0.5 w-8 bg-red-300 rounded-full"></div>
+                                    <span className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-400">The Old Way</span>
                                 </div>
-                                <h3 className="text-xl md:text-2xl font-bold text-brand-100">
-                                    Scaling is <span className="text-red-500">NOT</span>
-                                </h3>
-                            </div>
 
-                            <p className="text-lg font-semibold text-brand-200 mb-6">Hiring More Admin</p>
-                            <p className="text-brand-300 mb-2">To handle 2× enquiries:</p>
-
-                            <div className="bg-white rounded-xl p-5 border border-gray-200 mb-6">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <DollarSign className="w-5 h-5 text-brand-500" />
-                                    <span className="text-lg font-bold text-brand-100">1 extra admin = <span className="text-red-500">$2,000–$3,000</span>/month</span>
-                                </div>
-                                <div className="flex flex-wrap gap-4">
-                                    <div className="flex items-center gap-2 text-brand-300">
-                                        <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
-                                        </div>
-                                        Plus training
-                                    </div>
-                                    <div className="flex items-center gap-2 text-brand-300">
-                                        <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
-                                        </div>
-                                        Plus management time
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* Scaling IS */}
-                        <motion.div
-                            initial={{ opacity: 0, x: 40 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, margin: "-80px" }}
-                            transition={{ duration: 0.7, delay: 0.15 }}
-                            className="bg-white rounded-2xl p-8 md:p-10 border border-gray-200 relative overflow-hidden shadow-lg shadow-brand-500/5"
-                        >
-                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-500 via-accent-cyan to-accent-green"></div>
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                                    <CheckCircle2 className="w-5 h-5 text-accent-green" />
-                                </div>
-                                <h3 className="text-xl md:text-2xl font-bold text-brand-100">
-                                    Scaling <span className="text-brand-500">IS</span>
-                                </h3>
-                            </div>
-
-                            <p className="text-lg font-semibold text-brand-200 mb-6">Installing Systems That Handle the Same Workload Automatically.</p>
-
-                            <div className="bg-gray-50 rounded-xl p-5 border border-gray-100 mb-6">
-                                <p className="text-sm font-semibold text-brand-300 uppercase tracking-wider mb-4">AI Workflow System:</p>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div className="space-y-4">
                                     {[
-                                        { icon: Clock, text: "24/7 instant response" },
-                                        { icon: CalendarCheck, text: "Automated booking" },
-                                        { icon: ArrowRight, text: "Follow-ups" },
-                                        { icon: UserMinus, text: "Admin tasks removed" },
+                                        "Hire more admin",
+                                        "$2,000\u2013$3,000/month",
+                                        "Training costs",
+                                        "Management time"
                                     ].map((item, i) => (
-                                        <div key={i} className="flex items-center gap-2.5">
-                                            <div className="w-6 h-6 rounded-full bg-accent-green/15 flex items-center justify-center shrink-0">
-                                                <item.icon className="w-3.5 h-3.5 text-accent-green" />
-                                            </div>
-                                            <span className="text-brand-200 text-sm font-medium">{item.text}</span>
-                                        </div>
+                                        <p key={i} className="text-lg text-brand-400 line-through decoration-brand-400/40 decoration-1">
+                                            {item}
+                                        </p>
                                     ))}
                                 </div>
                             </div>
-                        </motion.div>
-                    </div>
 
-                    {/* Bottom persuader */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                        className="mt-10 text-center"
-                    >
-                        <div className="inline-flex items-center gap-3 bg-gradient-to-r from-brand-500/5 via-accent-cyan/5 to-accent-green/5 border border-brand-500/20 rounded-full px-8 py-4">
-                            <DollarSign className="w-5 h-5 text-brand-500" />
-                            <span className="text-lg md:text-xl font-bold text-brand-100">
-                                Typical Cost: <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-green">Fraction of a Full-Time Salary</span>
-                            </span>
+                            {/* Center Divider + Arrow */}
+                            <div className="hidden md:flex flex-col items-center justify-center self-stretch py-4">
+                                <div className="w-px flex-1 bg-gray-200"></div>
+                                <div className="my-4">
+                                    <ArrowRight className="w-5 h-5 text-brand-400" />
+                                </div>
+                                <div className="w-px flex-1 bg-gray-200"></div>
+                            </div>
+
+                            {/* Mobile divider */}
+                            <div className="md:hidden flex items-center gap-4">
+                                <div className="h-px flex-1 bg-gray-200"></div>
+                                <ArrowRight className="w-5 h-5 text-brand-400 rotate-90 md:rotate-0" />
+                                <div className="h-px flex-1 bg-gray-200"></div>
+                            </div>
+
+                            {/* Right — The B-AI Way */}
+                            <div className="md:pl-10">
+                                <div className="flex items-center gap-2 mb-8">
+                                    <div className="h-0.5 w-8 bg-gradient-to-r from-brand-500 to-accent-green rounded-full"></div>
+                                    <span className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-500">The B-AI Way</span>
+                                </div>
+
+                                <div className="space-y-4 mb-8">
+                                    {[
+                                        "24/7 instant response",
+                                        "Automated booking",
+                                        "Smart follow-ups",
+                                        "Admin tasks eliminated"
+                                    ].map((item, i) => (
+                                        <div key={i} className="flex items-center gap-3">
+                                            <CheckCircle2 className="w-5 h-5 text-accent-green shrink-0" />
+                                            <span className="text-lg font-medium text-brand-100">{item}</span>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <p className="text-lg md:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-accent-green">
+                                    A fraction of a full-time salary
+                                </p>
+                            </div>
                         </div>
                     </motion.div>
                 </div>
