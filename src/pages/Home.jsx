@@ -113,13 +113,13 @@ export function Home() {
                                 <div className="flex flex-wrap gap-4">
                                     <div className="flex items-center gap-2 text-brand-300">
                                         <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center">
-                                            <span className="text-amber-600 text-xs">⚡</span>
+                                            <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
                                         </div>
                                         Plus training
                                     </div>
                                     <div className="flex items-center gap-2 text-brand-300">
                                         <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center">
-                                            <span className="text-amber-600 text-xs">⚡</span>
+                                            <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
                                         </div>
                                         Plus management time
                                     </div>
