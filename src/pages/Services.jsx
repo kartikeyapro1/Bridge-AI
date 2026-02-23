@@ -47,22 +47,21 @@ export function Services() {
     ];
 
     return (
-        <div className="flex flex-col min-h-screen pt-24 bg-background">
-            {/* Background Ambient Effects */}
-            <div className="aurora-mesh opacity-40"></div>
+        <div className="flex flex-col min-h-screen pt-20 bg-white">
+            <div className="aurora-mesh opacity-30"></div>
 
-            {/* Header Section */}
-            <section className="relative pt-24 pb-20 px-6 text-center">
+            {/* Header */}
+            <section className="relative pt-20 pb-20 px-6 text-center">
                 <div className="max-w-3xl mx-auto relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">
-                            Core Capabilities
+                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-brand-100">
+                            Core <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-accent-cyan to-accent-green">Capabilities</span>
                         </h1>
-                        <p className="text-xl text-brand-100/70 leading-relaxed">
+                        <p className="text-xl text-brand-300 leading-relaxed">
                             All solutions are custom-built with scalability in mind. We build systems, not just disjointed tools.
                         </p>
                     </motion.div>
@@ -80,22 +79,22 @@ export function Services() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                                className="bg-surface rounded-2xl border border-brand-800 p-8 flex flex-col hover:border-brand-500 transition-colors group relative overflow-hidden"
+                                className="bg-gray-50 rounded-2xl border border-gray-200 p-8 flex flex-col hover:border-brand-500/40 hover:shadow-lg hover:shadow-brand-500/5 transition-all group relative overflow-hidden"
                             >
                                 {service.tag === "Strong Initial Offer" && (
-                                    <div className="absolute top-0 right-0 bg-brand-500 text-background text-xs font-bold px-3 py-1 rounded-bl-lg">
+                                    <div className="absolute top-0 right-0 bg-accent-green text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
                                         HOT
                                     </div>
                                 )}
 
-                                <div className="w-14 h-14 rounded-xl bg-background border border-brand-700 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-900/40 transition-all duration-300">
+                                <div className="w-14 h-14 rounded-xl bg-white border border-gray-200 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-brand-500/30 transition-all duration-300">
                                     <service.icon className="w-7 h-7 text-brand-500" />
                                 </div>
 
                                 <h3 className="text-2xl font-bold mb-4 text-brand-100">{service.title}</h3>
-                                <p className="text-brand-100/60 leading-relaxed flex-1">{service.description}</p>
+                                <p className="text-brand-300 leading-relaxed flex-1">{service.description}</p>
 
-                                <div className="mt-8 pt-6 border-t border-brand-900/50">
+                                <div className="mt-8 pt-6 border-t border-gray-200">
                                     <span className="text-xs font-mono text-brand-500/80 uppercase tracking-wider">{service.tag}</span>
                                 </div>
                             </motion.div>
@@ -105,16 +104,15 @@ export function Services() {
             </section>
 
             {/* Delivery Model */}
-            <section className="py-24 px-6 border-t border-brand-900/30 bg-surface/30 relative z-10">
+            <section className="py-24 px-6 border-t border-gray-100 bg-gray-50/30 relative z-10">
                 <div className="max-w-5xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-5xl font-bold mb-6 text-brand-100">Delivery Model</h2>
-                        <p className="text-brand-100/60 text-lg">How we architect and deploy infrastructure.</p>
+                        <p className="text-brand-300 text-lg">How we architect and deploy infrastructure.</p>
                     </div>
 
                     <div className="relative">
-                        {/* Connecting line */}
-                        <div className="hidden md:block absolute left-[50%] top-0 bottom-0 w-px bg-brand-800 -translate-x-1/2"></div>
+                        <div className="hidden md:block absolute left-[50%] top-0 bottom-0 w-px bg-gray-200 -translate-x-1/2"></div>
 
                         <div className="space-y-12 relative">
                             {deliverySteps.map((step, index) => (
@@ -129,15 +127,14 @@ export function Services() {
                                 >
                                     <div className="hidden md:block w-[45%]"></div>
 
-                                    {/* Phase Marker */}
-                                    <div className="w-12 h-12 rounded-full bg-brand-900 border-4 border-background text-brand-500 font-bold flex items-center justify-center z-10 mb-4 md:mb-0 shadow-lg shadow-brand-900/20">
+                                    <div className="w-12 h-12 rounded-full bg-white border-4 border-gray-100 text-brand-500 font-bold flex items-center justify-center z-10 mb-4 md:mb-0 shadow-lg shadow-gray-200/50">
                                         {step.phase}
                                     </div>
 
-                                    <div className={`w-full md:w-[45%] bg-background p-6 rounded-xl border border-brand-800 shadow-xl ${index % 2 === 0 ? "md:text-left" : "md:text-right"
+                                    <div className={`w-full md:w-[45%] bg-white p-6 rounded-xl border border-gray-200 shadow-lg ${index % 2 === 0 ? "md:text-left" : "md:text-right"
                                         }`}>
-                                        <h4 className="text-xl font-bold text-brand-300 mb-2">{step.title}</h4>
-                                        <p className="text-brand-100/60 leading-relaxed">{step.desc}</p>
+                                        <h4 className="text-xl font-bold text-brand-100 mb-2">{step.title}</h4>
+                                        <p className="text-brand-300 leading-relaxed">{step.desc}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -146,8 +143,8 @@ export function Services() {
 
                     <div className="mt-20 text-center">
                         <Link to="/contact">
-                            <Button size="lg" className="px-12">
-                                Begin Phase 1 <ArrowRight className="w-5 h-5 ml-2" />
+                            <Button size="lg" className="px-12 gap-2">
+                                Begin Phase 1 <ArrowRight className="w-5 h-5" />
                             </Button>
                         </Link>
                     </div>

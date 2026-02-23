@@ -5,6 +5,7 @@ import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Services } from './pages/Services';
+import { Solutions } from './pages/Solutions';
 import { Contact } from './pages/Contact';
 
 function ScrollToTop() {
@@ -19,7 +20,7 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background text-brand-100 font-sans antialiased selection:bg-brand-500 selection:text-white">
       <ScrollToTop />
       <Navbar />
       <main className="flex-1">
@@ -27,6 +28,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/solutions" element={<Solutions />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>

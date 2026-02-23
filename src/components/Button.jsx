@@ -10,26 +10,26 @@ export function cn(...inputs) {
 export const Button = React.forwardRef(
     ({ className, variant = 'primary', size = 'md', children, ...props }, ref) => {
 
-        const baseStyles = "inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-500 disabled:pointer-events-none disabled:opacity-50";
+        const baseStyles = "inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50 disabled:pointer-events-none disabled:opacity-50 cursor-pointer";
 
         const variants = {
-            primary: "bg-brand-500 text-background hover:bg-brand-400 shadow-sm shimmer-effect glow-pulse",
-            secondary: "bg-surface text-brand-500 hover:bg-surface/80 border border-brand-800",
-            outline: "border border-brand-700 bg-transparent hover:bg-brand-900/30 text-brand-400",
-            ghost: "hover:bg-brand-900/20 hover:text-brand-300 text-brand-400",
+            primary: "bg-brand-500 text-white hover:bg-blue-700 shadow-md shadow-brand-500/20 hover:shadow-lg hover:shadow-brand-500/30",
+            secondary: "bg-white text-brand-100 border-2 border-brand-600 hover:bg-gray-50 hover:border-brand-500",
+            outline: "border-2 border-accent-green text-brand-100 bg-transparent hover:bg-accent-green/5",
+            ghost: "hover:bg-gray-100 text-brand-300 hover:text-brand-100",
         };
 
         const sizes = {
-            sm: "h-8 px-3 text-xs",
-            md: "h-11 px-6 py-2 text-sm",
-            lg: "h-14 px-8 text-base",
+            sm: "h-9 px-5 text-sm",
+            md: "h-11 px-7 text-sm",
+            lg: "h-13 px-9 text-base",
         };
 
         return (
             <motion.button
                 ref={ref}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 className={cn(baseStyles, variants[variant], sizes[size], className)}
                 {...props}
