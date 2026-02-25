@@ -17,9 +17,9 @@ export function Footer() {
                             We architect structured automation infrastructure that improves operational efficiency and revenue performance.
                         </p>
                         <div className="flex items-center gap-4 text-brand-400">
-                            <a href="mailto:hello@b-ai.com" className="hover:text-brand-500 transition-colors flex items-center gap-2">
+                            <a href="mailto:contact@bridge-ai.uk" className="hover:text-brand-500 transition-colors flex items-center gap-2">
                                 <Mail className="w-4 h-4" />
-                                <span>hello@b-ai.com</span>
+                                <span>contact@bridge-ai.uk</span>
                             </a>
                         </div>
                     </div>
@@ -30,7 +30,6 @@ export function Footer() {
                             <li><Link to="/" className="text-brand-300 hover:text-brand-500 transition-colors">Home</Link></li>
                             <li><Link to="/about" className="text-brand-300 hover:text-brand-500 transition-colors">About Us</Link></li>
                             <li><Link to="/services" className="text-brand-300 hover:text-brand-500 transition-colors">Services</Link></li>
-                            <li><Link to="/solutions" className="text-brand-300 hover:text-brand-500 transition-colors">Solutions</Link></li>
                             <li><Link to="/contact" className="text-brand-300 hover:text-brand-500 transition-colors">Book a Call</Link></li>
                         </ul>
                     </div>
@@ -38,8 +37,9 @@ export function Footer() {
                     <div>
                         <h4 className="text-brand-100 font-semibold mb-6">Legal</h4>
                         <ul className="space-y-4">
-                            <li><Link to="#" className="text-brand-300 hover:text-brand-500 transition-colors">Privacy Policy</Link></li>
-                            <li><Link to="#" className="text-brand-300 hover:text-brand-500 transition-colors">Terms of Service</Link></li>
+                            <li><Link to="/legal#privacy-policy" className="text-brand-300 hover:text-brand-500 transition-colors">Privacy Policy</Link></li>
+                            <li><Link to="/legal#terms-and-conditions" className="text-brand-300 hover:text-brand-500 transition-colors">Terms of Service</Link></li>
+                            <li><Link to="/legal#cookie-policy" className="text-brand-300 hover:text-brand-500 transition-colors">Cookie Policy</Link></li>
                         </ul>
                     </div>
                 </div>

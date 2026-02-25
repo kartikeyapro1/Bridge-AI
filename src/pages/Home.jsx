@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Zap, Target, Layers, ArrowUpRight, X, CheckCircle2, Play } from 'lucide-react';
+import { ArrowRight, Zap, Target, Layers, ArrowUpRight, X, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/Button';
 
@@ -40,9 +40,9 @@ export function Home() {
                                     Our Services
                                 </Button>
                             </Link>
-                            <Link to="/solutions">
+                            <Link to="/contact">
                                 <Button variant="outline" size="lg" className="gap-2 px-8">
-                                    <Play className="w-4 h-4 fill-current" /> Watch Demo
+                                    Book a Call <ArrowRight className="w-4 h-4" />
                                 </Button>
                             </Link>
                         </div>
