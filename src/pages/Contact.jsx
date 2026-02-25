@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, ArrowRight, Building2, Globe, Calendar, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/Button';
-import { PopupButton } from 'react-calendly';
+
+// Lazy-load Calendly so its SDK isn't in the critical path
+const CalendlyPopupButton = React.lazy(() =>
+    import('react-calendly').then(m => ({ default: m.PopupButton }))
+);
 
 // ── Replace with your Web3Forms access key ──
 // Get a free key at https://web3forms.com
@@ -124,12 +128,18 @@ export function Contact() {
                                         <p className="text-brand-300 text-sm mb-4">
                                             Prefer to talk through your needs? Schedule a free 30-minute discovery call to discuss your operational challenges.
                                         </p>
-                                        <PopupButton
-                                            url="https://calendly.com/contact-bridge-ai/30min"
-                                            rootElement={document.getElementById('root')}
-                                            className="inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-200 bg-brand-500 text-white hover:bg-blue-700 shadow-md shadow-brand-500/20 hover:shadow-lg hover:shadow-brand-500/30 h-9 px-5 text-sm cursor-pointer"
-                                            text="Schedule a Call"
-                                        />
+                                        <Suspense fallback={
+                                            <button className="inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-200 bg-brand-500 text-white hover:bg-blue-700 shadow-md shadow-brand-500/20 hover:shadow-lg hover:shadow-brand-500/30 h-9 px-5 text-sm cursor-pointer">
+                                                Schedule a Call
+                                            </button>
+                                        }>
+                                            <CalendlyPopupButton
+                                                url="https://calendly.com/contact-bridge-ai/30min"
+                                                rootElement={document.getElementById('root')}
+                                                className="inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-200 bg-brand-500 text-white hover:bg-blue-700 shadow-md shadow-brand-500/20 hover:shadow-lg hover:shadow-brand-500/30 h-9 px-5 text-sm cursor-pointer"
+                                                text="Schedule a Call"
+                                            />
+                                        </Suspense>
                                     </div>
                                 </div>
                             </motion.div>

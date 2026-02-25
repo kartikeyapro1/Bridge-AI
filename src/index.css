@@ -82,6 +82,14 @@
     pointer-events: none;
   }
 
+  /* Simplified aurora for mobile — fewer gradient layers = less compositing */
+  @media (max-width: 768px) {
+    .aurora-mesh {
+      background: radial-gradient(ellipse at top left, rgba(0, 230, 118, 0.06), transparent 60%),
+        radial-gradient(ellipse at top right, rgba(0, 229, 255, 0.06), transparent 50%);
+    }
+  }
+
   .glow-pulse {
     animation: glow-pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
   }
@@ -96,5 +104,58 @@
     50% {
       box-shadow: 0 0 0 10px rgba(0, 102, 255, 0);
     }
+  }
+
+  /* GPU promotion hint for animated elements */
+  .gpu-promote {
+    will-change: transform, opacity;
+  }
+
+  /* Hero glow — run once then stop, reduce on mobile */
+  .hero-glow {
+    animation: hero-glow-fade 2s ease-out forwards;
+    will-change: opacity;
+  }
+
+  @keyframes hero-glow-fade {
+    0% {
+      opacity: 0.4;
+    }
+
+    50% {
+      opacity: 0.7;
+    }
+
+    100% {
+      opacity: 0.5;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-glow {
+      animation: none;
+      opacity: 0.3;
+    }
+  }
+}
+
+/* Reduce backdrop-blur on mobile Safari (expensive compositing) */
+@media (max-width: 768px) {
+  .backdrop-blur-md {
+    -webkit-backdrop-filter: blur(4px) !important;
+    backdrop-filter: blur(4px) !important;
+  }
+}
+
+/* Respect prefers-reduced-motion — disable animations globally */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

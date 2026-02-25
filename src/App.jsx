@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { Home } from './pages/Home';
-import { About } from './pages/About';
-import { Services } from './pages/Services';
-import { Contact } from './pages/Contact';
-import { Legal } from './pages/Legal';
+
+// Lazy-load every page for route-level code splitting
+const Home = React.lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
+const About = React.lazy(() => import('./pages/About').then(m => ({ default: m.About })));
+const Services = React.lazy(() => import('./pages/Services').then(m => ({ default: m.Services })));
+const Contact = React.lazy(() => import('./pages/Contact').then(m => ({ default: m.Contact })));
+const Legal = React.lazy(() => import('./pages/Legal').then(m => ({ default: m.Legal })));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -24,13 +26,15 @@ function App() {
       <ScrollToTop />
       <Navbar />
       <main className="flex-1">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/legal" element={<Legal />} />
-        </Routes>
+        <Suspense fallback={<div className="flex-1 min-h-screen" />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/legal" element={<Legal />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
     </div>

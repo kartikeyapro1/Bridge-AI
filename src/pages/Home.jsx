@@ -57,7 +57,7 @@ export function Home() {
                     >
                         <div className="relative w-full max-w-[500px] aspect-square">
                             {/* Soft ambient glow rings */}
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent-cyan/10 via-brand-500/8 to-accent-green/10 blur-[60px] animate-pulse"></div>
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent-cyan/10 via-brand-500/8 to-accent-green/10 blur-[60px] hero-glow"></div>
                             <img
                                 src="/brain-hero.png"
                                 alt="AI Brain Neural Network"
