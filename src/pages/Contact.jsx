@@ -134,7 +134,7 @@ export function Contact() {
                                             </button>
                                         }>
                                             <CalendlyPopupButton
-                                                url="https://calendly.com/contact-bridge-ai/30min"
+                                                url="https://calendly.com/contact-bridge-ai/b-ai-demo-call"
                                                 rootElement={document.getElementById('root')}
                                                 className="inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-200 bg-brand-500 text-white hover:bg-blue-700 shadow-md shadow-brand-500/20 hover:shadow-lg hover:shadow-brand-500/30 h-9 px-5 text-sm cursor-pointer"
                                                 text="Schedule a Call"
